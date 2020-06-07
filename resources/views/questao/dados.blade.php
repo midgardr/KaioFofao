@@ -42,6 +42,7 @@
                         <div class="form-group">
                             <a href="{{route('questao.index')}}" class="btn btn-secondary px-5"><i class="fa fa-arrow-left"></i> Voltar</a>
                             <button type="submit" class="btn btn-primary px-5"><i class="fa fa-save"></i> Salvar</button>
+                            <a href="{{route('questao.create')}}" class="btn btn-success px-5"><i class="fa fa-plus"></i> Novo</a>
                         </div>
                     </form>
                 </div>

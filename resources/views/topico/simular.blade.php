@@ -30,12 +30,12 @@
                                     <button type="button" id="errado{{$k}}" class="btn btn-danger" resposta="Errado" sessao="{{$k}}">Errado</button>
                                     <input type="hidden" id="resposta{{$k}}" value="{{ $questao->resposta }}">
                                 </div>
-                                <div class="alert alert-icon-{{$questao->resposta=='Certo'?'success':'danger'}} alert-dismissible" role="alert" id="alert{{$k}}">
-                                    <div class="alert-icon icon-part-{{$questao->resposta=='Certo'?'success':'danger'}}">
-                                    <i class="fa fa-{{$questao->resposta=='Certo'?'check':'times'}}"></i>
+                                <div class="alert alert-icon-success alert-dismissible" role="alert" id="alert{{ $k }}">
+                                    <div class="alert-icon icon-part-success" id="alertIcon{{ $k }}">
+                                    <i class="fa fa-check" id="icon{{ $k }}"></i>
                                     </div>
                                     <div class="alert-message">
-                                    <span><strong>{{ $questao->resposta }}</strong></span>
+                                    <span><strong id="mensagem{{$k}}"></strong></span>
                                     </div>
                                 </div>
                             </section>

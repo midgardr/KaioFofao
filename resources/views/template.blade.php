@@ -27,10 +27,6 @@
     <link href="{{asset('assets/css/app-style.css')}}" rel="stylesheet"/>
     <!--Select Plugins-->
     <link href="{{asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet"/>
-    <!--inputtags-->
-    <link href="{{asset('assets/plugins/inputtags/css/bootstrap-tagsinput.css')}}" rel="stylesheet" />
-    <!--Bootstrap Datepicker-->
-    <link href="{{asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <!-- start loader -->
@@ -133,17 +129,11 @@
 <script src="{{asset('assets/js/sidebar-menu.js')}}"></script>
 <!-- Custom scripts -->
 <script src="{{asset('assets/js/app-script.js')}}"></script>
-<!-- Input Mask -->
-<script src="{{asset('assets/js/jquery.mask.min.js')}}"></script>
 <!--notification js -->
 <script src="{{asset('assets/plugins/notifications/js/lobibox.min.js')}}"></script>
 <script src="{{asset('assets/plugins/notifications/js/notifications.min.js')}}"></script>
 <!--Select Plugins Js-->
 <script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
-<!--Inputtags Js-->
-<script src="{{asset('assets/plugins/inputtags/js/bootstrap-tagsinput.js')}}"></script>
-<!--Bootstrap Datepicker Js-->
-<script src="{{asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
 <!--Form Wizard-->
 <script src="{{asset('assets/plugins/jquery.steps/js/jquery.steps.min.js')}}"></script>
 <script src="{{asset('assets/plugins/jquery-validation/js/jquery.validate.min.js')}}"></script>
@@ -159,7 +149,7 @@
                 pauseDelayOnHover: true,
                 size: 'mini',
                 rounded: true,
-                continueDelayOnInactiveTab: false
+                continueDelayOnInactiveTab: false,
                 position: 'top right',
                 icon: 'fa fa-exclamation-circle',
                 msg: '{{ session("mensagem") }}'
@@ -168,6 +158,17 @@
         notificacao();
         @endif;
         $('#sessao').on('click', 'button', function(){
+            if($(this).attr('resposta') == $('#resposta'+$(this).attr('sessao')).val()){
+                $('#alert'+$(this).attr('sessao')).removeClass().addClass('alert alert-icon-success alert-dismissible');
+                $('#alertIcon'+$(this).attr('sessao')).removeClass().addClass('alert-icon icon-part-success');
+                $('#icon'+$(this).attr('sessao')).removeClass().addClass('fa fa-check');
+                $('#mensagem'+$(this).attr('sessao')).text('Você acertou!');
+            } else {
+                $('#alert'+$(this).attr('sessao')).removeClass().addClass('alert alert-icon-danger alert-dismissible');
+                $('#alertIcon'+$(this).attr('sessao')).removeClass().addClass('alert-icon icon-part-danger');
+                $('#icon'+$(this).attr('sessao')).removeClass().addClass('fa fa-times');
+                $('#mensagem'+$(this).attr('sessao')).text('Você errou!');
+            }
             $('#alert'+$(this).attr('sessao')).show();
         });
     });
