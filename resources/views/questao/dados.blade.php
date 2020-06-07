@@ -40,6 +40,10 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="comentario">Comentário</label>
+                            <textarea name="comentario" id="comentario" class="form-control">{{isset($questao)?$questao->comentario:''}}</textarea>
+                        </div>
+                        <div class="form-group">
                             <a href="{{route('questao.index')}}" class="btn btn-secondary px-5"><i class="fa fa-arrow-left"></i> Voltar</a>
                             <button type="submit" class="btn btn-primary px-5"><i class="fa fa-save"></i> Salvar</button>
                             <a href="{{route('questao.create')}}" class="btn btn-success px-5"><i class="fa fa-plus"></i> Novo</a>

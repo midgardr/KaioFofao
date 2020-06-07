@@ -11,7 +11,8 @@ class Questao extends Model
     protected $fillable = [
         'topico_id',
         'questao',
-        'resposta'
+        'resposta',
+        'comentario'
     ];
 
     public function getCreatedAtAttribute(){

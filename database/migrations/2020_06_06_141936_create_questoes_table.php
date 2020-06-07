@@ -18,6 +18,7 @@ class CreateQuestoesTable extends Migration
             $table->bigInteger('topico_id')->unsigned();
             $table->string('questao');
             $table->enum('resposta', ['Certo', 'Errado']);
+            $table->text('comentario')->nullable();
             $table->timestamps();
             $table->foreign('topico_id')->references('id')->on('topicos')->onDelete('cascade');
         });

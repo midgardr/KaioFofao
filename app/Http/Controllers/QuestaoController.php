@@ -41,6 +41,7 @@ class QuestaoController extends Controller
             $questao->topico_id = $request->topico_id;
             $questao->questao = $request->questao;
             $questao->resposta = $request->resposta;
+            $questao->comentario = $request->comentario;
             $questao->save();
             DB::commit();
             return redirect()->route('questao.edit', $questao)->with(['tipo'=>'success', 'mensagem'=>"Questão {$questao->questao} cadastrada com sucesso!", 'topicos'=>$topicos]);
@@ -61,6 +62,7 @@ class QuestaoController extends Controller
             $questao->topico_id = $request->topico_id;
             $questao->questao = $request->questao;
             $questao->resposta = $request->resposta;
+            $questao->comentario = $request->comentario;
             $questao->save();
             DB::commit();
             return redirect()->back()->with(['tipo'=>'success', 'mensagem'=>"Questão {$questao->questao} atualizada com sucesso!"]);
